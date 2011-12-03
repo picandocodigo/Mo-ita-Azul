@@ -9,10 +9,11 @@ class Home extends Controller {
 	public function index() {
 		Loader::model("balance");
 		$balance = new BalanceModel();
-
+		$balances = $balance->getBalance();
+		
 		$inView = new View("home/index");
-		$inView->setData(array("hola" => array("PEPE")));
-		$js = array();
+		$inView->setData(array("balances" => $balances));
+		$js = array('jquery-1.7.1.min', 'highcharts', 'graph1');
 		$css = array('screen', 'app');
 		View::defaultLayoutRender($inView, "Home", true, $js, $css);
 	}
