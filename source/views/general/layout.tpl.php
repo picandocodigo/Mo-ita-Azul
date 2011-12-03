@@ -18,8 +18,18 @@ and open the template in the editor.
     <body>
     	<div class="container">
   			<div class="span-24 header">
-  				<h1>HEADER</h1>
-  				Mo&ntilde;ita azul
+  				<div class="span-15">	
+  					<h1>HEADER</h1>
+  					Mo&ntilde;ita azul
+				</div>
+  				<div class="align-right span-9 last">
+  					<div class="span-9 last">
+  						<img src="source/themes/img/dal-logo1.png">
+  					</div>
+  					<div class="span-9 last">
+  						<img src="source/themes/img/dal-logo2.png">
+  					</div>
+  				</div>
   			</div>
   			<div class="span-24 content">
   				<?= $content; ?>
