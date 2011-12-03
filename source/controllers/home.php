@@ -9,7 +9,6 @@ class Home extends Controller {
 	public function index() {
 		Loader::model("balance");
 		$balance = new BalanceModel();
-		var_dump($balance->getBalance());
 
 		$inView = new View("home/index");
 		$inView->setData(array("hola" => array("PEPE")));
