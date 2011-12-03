@@ -3,6 +3,20 @@ body {
 }
 
 .container {
+	
+}
+
+.header {
+	background-color: #FFF;
+	margin-bottom: 10px;
+}
+
+.footer {
+	background-color: #FFF;
+	margin-top: 10px;
+}
+
+.content {
 	background-color: #FFF;
 	min-height: 400px;
 }

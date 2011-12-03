@@ -17,11 +17,14 @@ and open the template in the editor.
     </head>
     <body>
     	<div class="container">
-  			<div class="span-24">
-  				The header
+  			<div class="span-24 header">
+  				<h1>HEADER</h1>
   			</div>
-  			<div class="span-24">
+  			<div class="span-24 content">
   				<?= $content; ?>
+  			</div>
+  			<div class="span-24 footer">
+  				<h3>FOOTER</h3>
   			</div>
 		</div>
     </body>
