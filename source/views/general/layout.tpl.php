@@ -16,6 +16,13 @@ and open the template in the editor.
 		<?php endforeach; ?>
     </head>
     <body>
-        <?= $content; ?>
+    	<div class="container">
+  			<div class="span-24">
+  				The header
+  			</div>
+  			<div class="span-24">
+  				<?= $content; ?>
+  			</div>
+		</div>
     </body>
 </html>
