@@ -5,7 +5,7 @@ and open the template in the editor.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
-		<base href="<?= PROTOCOL_METHOD.URL_BASE; ?>" />
+	<base href="<?= PROTOCOL_METHOD.URL_BASE; ?>" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><?= $title; ?></title>
 		<?php foreach ($css as $cs) : ?>
@@ -19,6 +19,7 @@ and open the template in the editor.
     	<div class="container">
   			<div class="span-24 header">
   				<h1>HEADER</h1>
+  				Mo&ntilde;ita azul
   			</div>
   			<div class="span-24 content">
   				<?= $content; ?>
