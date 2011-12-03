@@ -9,6 +9,7 @@ El asunto a atacar es **Educación**. Vamos a hacer uso de los siguientes datos 
  * Educacion	matricula en educacion publica y privada	http://www.anep.edu.uy/observatorio/paginas/matricula/matricula_anep.html	xls
 
 Los objetivos principales de nuestra aplicación son:
+
  * Permitir una visualización amigable de los datos disponibles. Permitir el acceso a gráficas con los resultados de abandonos, egresos, matrículas, repeticiones.
  * Mapear los datos de estadísticas de abandonos, egresos y resultados generales con la inversión en ANEP para detectar relaciones entre inversión y resultados por año.
  * Proveer un servicio de ayuda a los padres a la hora de elegir una escuela para sus hijos.
