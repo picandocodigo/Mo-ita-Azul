@@ -2,3 +2,11 @@
  *= require_self
  *= require_tree ./screen 
 */
+
+body{
+	background-color: #2B60DE;
+}
+
+.content{
+	background-color: #FFF;
+}
