@@ -8,3 +8,10 @@ CREATE TABLE `monita`.`ma_balance` (
 )
 ENGINE = InnoDB
 CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+INSERT INTO ma_balance (name, year, credit, expenses) VALUES
+						('Sueldos', 2010, 5249422784, 5237820663),
+						('Partida Alimentación', 2010, 399109409, 399102228),
+						('Aportes', 2010, 2198159469, 2194360905),
+						('Beneficios Sociales', 2010, 141502758, 129314855),
+						('Fondo inasistencias', 2010, 349519, 96667);
