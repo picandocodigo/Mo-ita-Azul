@@ -7,7 +7,6 @@ class Home extends Controller {
 	}
 	
 	public function index() {
-		
 		$inView = new View("home/index");
 		$inView->setData(array("hola" => array("PEPE")));
 		$js = array();
