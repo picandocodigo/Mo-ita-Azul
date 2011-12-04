@@ -32,6 +32,7 @@ and open the template in the editor.
   			</div>
   			</div>
       <div class="footer">
+      	  <a style="float: left; margin-left: 50px;" href=<?php echo PROTOCOL_METHOD.URL_BASE."home/census"; ?>>Datos del último censo</a>
           <a href="http://desarrollandoamerica.org" title="Desarrollando Am&eacute;rica Latina">Desarrollando Am&eacute;rica Latina</a>
       </div>
     </body>
