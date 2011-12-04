@@ -437,3 +437,29 @@ INSERT INTO ma_department_registry (department_id, year, average) VALUES
 		 	(19,2008,5883),
 		 	(19,2009,5658),
 		 	(19,2010,5404);
+
+CREATE TABLE `monita`.`ma_department_abandon` (
+  `department_id` INT  NOT NULL,
+  `year` INT(4)  NOT NULL,
+  `average` DOUBLE  NOT NULL,
+  PRIMARY KEY (`department_id`, `year`),
+  CONSTRAINT `abandon_to_department_fk` FOREIGN KEY `abandon_to_department_fk` (`department_id`)
+    REFERENCES `ma_departments` (`id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+CREATE TABLE `monita`.`ma_department_absences` (
+  `department_id` INT  NOT NULL,
+  `year` INT(4)  NOT NULL,
+  `average` DOUBLE  NOT NULL,
+  PRIMARY KEY (`department_id`, `year`),
+  CONSTRAINT `absences_to_department_fk` FOREIGN KEY `absences_to_department_fk` (`department_id`)
+    REFERENCES `ma_departments` (`id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_general_ci;
