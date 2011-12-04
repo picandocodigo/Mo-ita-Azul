@@ -57,7 +57,7 @@ class Home extends Controller {
 	
 	private function prepareFailureAverage($data) {
 		$result = new stdClass();
-		$result->container = "failure-averages";
+		$result->container = "failure-bar";
 		$result->title = "Porcentaje de repetición total por año.";
 		$result->categoriesArr = array();
 		$result->yAxisTitle = "Porcentaje";
