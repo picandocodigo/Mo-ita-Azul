@@ -55,7 +55,8 @@ class Home extends Controller {
             if (!in_array($censusitem['name'], $result->categories)){
                 $result->categories[] = $censusitem['name'];
             }
-            
+            $item = new stdClass();
+            $result->data[] = $censusitem;
         }
         
         
