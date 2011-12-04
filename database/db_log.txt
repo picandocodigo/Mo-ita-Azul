@@ -100,4 +100,176 @@ CREATE TABLE `monita`.`ma_department_failures` (
 ENGINE = InnoDB
 CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-									
+INSERT INTO ma_department_failures (department_id, year, average)
+	values	(1,2004,7.9), 
+			(1,2005,7.4),
+			(1,2006,7.9),
+			(1,2007,7.2),
+			(1,2008,3.5),
+			(1,2009,4.2),
+			(1,2010,3.4);
+
+INSERT INTO ma_department_failures (department_id, year, average)
+	values	(2,2004,9.5),
+			(2,2005,9.1),
+			(2,2006,9.3),
+			(2,2007,8.7),
+			(2,2008,6.7),
+			(2,2009,7.3),
+			(2,2010,6.7);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(3,2004,7.0),
+			(3,2005,7.3),
+			(3,2006,8.0),
+			(3,2007,7.8),
+			(3,2008,7.1),
+			(3,2009,6.9),
+			(3,2010,8.4);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(4,2004,4.0),
+			(4,2005,4.5),
+			(4,2006,4.6),
+			(4,2007,4.4),
+			(4,2008,2.5),
+			(4,2009,3.2),
+			(4,2010,2.9);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(5,2004,7.1),
+			(5,2005,7.0),
+			(5,2006,6.5),
+			(5,2007,5.3),
+			(5,2008,4.4),
+			(5,2009,2.9),
+			(5,2010,2.7);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(6,2004,5.2),
+			(6,2005,4.2),
+			(6,2006,4.1),
+			(6,2007,3.5),
+			(6,2008,1.4),
+			(6,2009,3.1),
+			(6,2010,1.5);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(7,2004,5.6),
+			(7,2005,5.0),
+			(7,2006,5.7),
+			(7,2007,5.0),
+			(7,2008,4.1),
+			(7,2009,3.7),
+			(7,2010,4.4);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(8,2004,4.5),
+			(8,2005,6.8),
+			(8,2006,5.5),
+			(8,2007,5.9),
+			(8,2008,4.8),
+			(8,2009,4.7),
+			(8,2010,5.5);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(9,2004,7.8),
+			(9,2005,7.6),
+			(9,2006,7.2),
+			(9,2007,6.9),
+			(9,2008,5.2),
+			(9,2009,5.1),
+			(9,2010,4.6);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(10,2004,10.6),
+			(10,2005,9.5),
+			(10,2006,9.2),
+			(10,2007,9.2),
+			(10,2008,8.2),
+			(10,2009,8.6),
+			(10,2010,8.9);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(11,2004,7.7),
+			(11,2005,7.5),
+			(11,2006,8.1),
+			(11,2007,8.4),
+			(11,2008,7.5),
+			(11,2009,6.3),
+			(11,2010,6.5);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(12,2004,8.9),
+			(12,2005,7.9),
+			(12,2006,7.5),
+			(12,2007,8.0),
+			(12,2008,5.5),
+			(12,2009,5.0),
+			(12,2010,5.1);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(13,2004,8.6),
+			(13,2005,6.8),
+			(13,2006,6.4),
+			(13,2007,5.9),
+			(13,2008,4.8),
+			(13,2009,4.5),
+			(13,2010,3.5);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(14,2004,5.2),
+			(14,2005,3.9),
+			(14,2006,4.4),
+			(14,2007,4.3),
+			(14,2008,3.6),
+			(14,2009,2.8),
+			(14,2010,2.7);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(15,2004,7.9),
+			(15,2005,8.3),
+			(15,2006,7.2),
+			(15,2007,7.9),
+			(15,2008,5.7),
+			(15,2009,6.7),
+			(15,2010,5.9);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(16,2004,9.6),
+			(16,2005,10),
+			(16,2006,9.7),
+			(16,2007,9.8),
+			(16,2008,7.3),
+			(16,2009,6.0),
+			(16,2010,5.3);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(17,2004,5.8),
+			(17,2005,7.1),
+			(17,2006,7.1),
+			(17,2007,6.5),
+			(17,2008,4.2),
+			(17,2009,4.5),
+			(17,2010,3.6);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(18,2004,7.3),
+			(18,2005,5.6),
+			(18,2006,4.9),
+			(18,2007,4.1),
+			(18,2008,2.7),
+			(18,2009,2.8),
+			(18,2010,3.0);
+
+INSERT INTO ma_department_failures (department_id, year, average) 
+	values	(19,2004,6.6),
+			(19,2005,6.5),
+			(19,2006,6.3),
+			(19,2007,5.3),
+			(19,2008,4.8),
+			(19,2009,3.6),
+			(19,2010,3.5);
+
+
+
