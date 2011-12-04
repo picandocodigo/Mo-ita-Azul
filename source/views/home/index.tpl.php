@@ -1,6 +1,9 @@
 <div>
 	<div class="d-load-graph span-2 d-selected">
-		<a onclick="loadBalancesAgain(this);" class="span-2">Total</a> 
+		<a onclick="loadTotalAgain(this);" class="span-2">Total</a> 
+	</div>
+	<div class="d-load-graph span-2">
+		<a onclick="loadDetailedAgain(this);" class="span-2">Detallado</a> 
 	</div>
 <div id="container" > </div>
 
@@ -29,7 +32,15 @@
 				[<?php echo implode(",", $xvalues[0]) ?>],
 				'Pesos uruguayos ($UY)'
 			);*/ ?>
-	loadHorizontalGraph('<?php echo $balanceDetail; ?>');
+	loadHorizontalGraph('<?php echo $balanceTotal; ?>');
+	function loadTotalAgain(obj) {
+		activeTab(obj);
+		loadHorizontalGraph('<?php echo $balanceTotal; ?>');
+	}
+	function loadDetailedAgain(obj) {
+		activeTab(obj);
+		loadHorizontalGraph('<?php echo $balanceDetail; ?>');
+	}
 </script>
 <?php if (count($failureYears)): ?> 
 <div>

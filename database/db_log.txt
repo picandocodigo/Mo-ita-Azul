@@ -279,7 +279,7 @@ INSERT INTO ma_department_registry (department_id, year, average) VALUES
 				(1,2007,10442),
 				(1,2008,10032),
 				(1,2009,9639),
-				(1,2009,9210);
+				(1,2010,9210);
 							
 INSERT INTO ma_department_registry (department_id, year, average) VALUES
 		 		(2,2005,54642),
