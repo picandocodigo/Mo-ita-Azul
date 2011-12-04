@@ -19,7 +19,13 @@ class Home extends Controller {
 				
 
 		$inView = new View("home/index");
-		$inView->setData(array("balanceTotal" => json_encode($balances["total"]), "failureYears" => $failureYears, "averages" => json_encode($failureAverage), "totalRegistration" => json_encode($totalRegistration)));
+		$inView->setData(array(
+			"balanceTotal" => json_encode($balances["total"]),
+			"balanceDetail" => json_encode($balances["detailed"]),
+			"failureYears" => $failureYears, 
+			"averages" => json_encode($failureAverage),
+			"totalRegistration" => json_encode($totalRegistration)
+		));
 		$js = array('jquery-1.7.1.min', 'highcharts', 'horizontal-bar-graph', 'bar-graph', 'generic');
 		$css = array('screen', 'app');
 		View::defaultLayoutRender($inView, "Home", true, $js, $css);
@@ -45,6 +51,13 @@ class Home extends Controller {
     }*/
     private function prepareBalanceData($data) {
     	$arrayResult = array();
+    	
+  		$arrayResult["detailed"] = $this->prepareBalanceDetailed($data);
+    	$arrayResult["total"] = $this->prepareBalanceTotal($data);
+    	return $arrayResult;
+    }
+    
+    private function prepareBalanceTotal($data) {
     	$total = new stdClass();
     	$total->container = "container";
     	$total->title = "Inversión en educación por año.";
@@ -59,12 +72,33 @@ class Home extends Controller {
     			$i++;
     			$total->categoriesArr[] = $balance->year;
     			$total->seriesArr[0]->data[$i] = (integer)$balance->expenses;
-    		} else 
+    		} else
     			$total->seriesArr[0]->data[$i] += (integer)$balance->expenses;
     	}
-  
-    	$arrayResult["total"] = $total;
-    	return $arrayResult;
+    	return $total;
+    }
+    
+    private function prepareBalanceDetailed($data) {
+    	$total = new stdClass();
+    	$total->container = "container";
+    	$total->title = "Inversión en educación por año (detallado).";
+    	$total->categoriesArr = array();
+    	$total->yAxisTitle = "Gastos";
+    	$total->seriesArr = array();
+    	$series = array();
+    	foreach ($data as $balance) {
+    		if (!in_array($balance->year, $total->categoriesArr)) 
+    			$total->categoriesArr[] = $balance->year;
+    		if (!isset($series[$balance->name])) {
+    			$series[$balance->name] = new stdClass();
+    			$series[$balance->name]->name = utf8_encode($balance->name);
+    			$series[$balance->name]->data = array();
+    		}
+    		$series[$balance->name]->data[] = (integer)$balance->expenses;
+    	}
+    	foreach ($series as $serie)
+    		$total->seriesArr[] = $serie;
+    	return $total;
     }
     
 	public function loadFailureGraph($year) {

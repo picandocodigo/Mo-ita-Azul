@@ -29,7 +29,7 @@
 				[<?php echo implode(",", $xvalues[0]) ?>],
 				'Pesos uruguayos ($UY)'
 			);*/ ?>
-	loadHorizontalGraph('<?php echo $balanceTotal; ?>');
+	loadHorizontalGraph('<?php echo $balanceDetail; ?>');
 </script>
 <?php if (count($failureYears)): ?> 
 <div>
