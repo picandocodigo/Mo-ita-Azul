@@ -16,7 +16,6 @@ class Home extends Controller {
 		$failureYears = $educationModel->getFailureAverageYears();
 		$failureAverage = $this->prepareFailureAverage($educationModel->getAverageFailureRatesByYear());
 		
-
 		$inView = new View("home/index");
 		$inView->setData(array(
 			"balanceTotal" => json_encode($balances["total"]),
@@ -28,6 +27,26 @@ class Home extends Controller {
 		$css = array('screen', 'app');
 		View::defaultLayoutRender($inView, "Home", true, $js, $css);
 	}
+    
+    public function census(){
+        Loader::model("census");
+        $censusModel = new CensusModel();
+        $censusData = $censusModel->getCensus();
+        $inView = new View("home/census");
+        $inView->setData(array("census_data"=>$censusData));
+        
+        $js = array('jquery-1.7.1.min', 'highcharts', 'generic');
+        $css = array('screen', 'app');
+        View::defaultLayoutRender($inView, "Datos censo", true, $js, $css);
+    }
+    
+    private function getCensusData($data){
+        foreach ($data as $census) {
+            
+            
+        }
+        
+    }
 
 	/*private function prepareBalanceData( $param ) {
 		Loader::util("chart_balance");
@@ -136,4 +155,6 @@ class Home extends Controller {
 		}
 		return $result;
 	}
+    
+    
 }

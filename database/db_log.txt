@@ -279,7 +279,7 @@ INSERT INTO ma_department_registry (department_id, year, average) VALUES
 				(1,2007,10442),
 				(1,2008,10032),
 				(1,2009,9639),
-				(1,2009,9210);
+				(1,2010,9210);
 							
 INSERT INTO ma_department_registry (department_id, year, average) VALUES
 		 		(2,2005,54642),
@@ -335,7 +335,7 @@ INSERT INTO ma_department_registry (department_id, year, average) VALUES
 		 	(8,2007,6321),
 		 	(8,2008,6168),
 		 	(8,2009,6027),
-		 	(8,2009,5904);
+		 	(8,2010,5904);
 
 
 INSERT INTO ma_department_registry (department_id, year, average) VALUES
@@ -352,7 +352,7 @@ INSERT INTO ma_department_registry (department_id, year, average) VALUES
 		 	(10,2007,122016),
 		 	(10,2008,119786),
 		 	(10,2009,118575),
-		 	(10,20010,116519);
+		 	(10,2010,116519);
 
 INSERT INTO ma_department_registry (department_id, year, average) VALUES
 		 	(11,2005,14441),

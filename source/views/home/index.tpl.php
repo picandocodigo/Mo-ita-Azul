@@ -2,6 +2,7 @@
 	<div class="d-load-graph span-2 d-selected">
 		<a onclick="loadBalancesAgain(this);" class="span-2">Total</a> 
 	</div>
+	<div style="clear:both;"> </div>
 <div id="container" > </div>
 
 	<?php /*	
