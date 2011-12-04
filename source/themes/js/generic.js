@@ -11,7 +11,6 @@ function loadGraph(data) {
 	barGraph(obj.container, obj.title, obj.categoriesArr, obj.yAxisTitle, obj.seriesName, obj.seriesArr);
 }
 function activeTab(obj) {
-	alert($(obj).parent().html());
 	$(".d-load-graph.d-selected").removeClass("d-selected");
 	$(obj).parent().addClass("d-selected");
 }
