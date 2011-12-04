@@ -20,8 +20,11 @@ class Home extends Controller {
 	
 	private function prepareBalanceData($balances) {
 		$result = array();
-		foreach ($balances as $balance) 
-			$result[$balance->year] = $balance;
+		foreach ($balances as $balance) { 
+			if (!isset($result[$balance->year]))
+				$result[$balance->year] = array();
+			$result[$balance->year][] = $balance;
+		}
 		return $result;
 	}
 }
