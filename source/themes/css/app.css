@@ -26,3 +26,6 @@ body {
 .align-right{
 	text-align: right;
 }
+.d-invisible {
+	display: none;
+}
