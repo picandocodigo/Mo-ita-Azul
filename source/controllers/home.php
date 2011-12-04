@@ -18,14 +18,13 @@ class Home extends Controller {
 		
 
 		$inView = new View("home/index");
-		$inView->setData(array("balances" => $balances, "failureYears" => $failureYears, "averages" => json_encode($failureAverage)));
-		$js = array('jquery-1.7.1.min', 'highcharts', 'graph1', 'bar-graph', 'generic');
+		$inView->setData(array("balanceTotal" => json_encode($balances["total"]), "failureYears" => $failureYears, "averages" => json_encode($failureAverage)));
+		$js = array('jquery-1.7.1.min', 'highcharts', 'horizontal-bar-graph', 'bar-graph', 'generic');
 		$css = array('screen', 'app');
 		View::defaultLayoutRender($inView, "Home", true, $js, $css);
 	}
-	
 
-	private function prepareBalanceData( $param ) {
+	/*private function prepareBalanceData( $param ) {
 		Loader::util("chart_balance");
 		$processed_balances = array();
 		$years = array();
@@ -42,7 +41,31 @@ class Home extends Controller {
 		endforeach;
 
 		return array($processed_balances, $years);
+    }*/
+    private function prepareBalanceData($data) {
+    	$arrayResult = array();
+    	$total = new stdClass();
+    	$total->container = "container";
+    	$total->title = "Inversión en educación por año.";
+    	$total->categoriesArr = array();
+    	$total->yAxisTitle = "Gastos";
+    	$total->seriesArr = array();
+    	$i = -1;
+    	$total->seriesArr[0] = new stdClass();
+    	$total->seriesArr[0]->name = "Total";
+    	foreach ($data as $balance) {
+    		if (!in_array($balance->year, $total->categoriesArr)) {
+    			$i++;
+    			$total->categoriesArr[] = $balance->year;
+    			$total->seriesArr[0]->data[$i] = (integer)$balance->expenses;
+    		} else 
+    			$total->seriesArr[0]->data[$i] += (integer)$balance->expenses;
+    	}
+  
+    	$arrayResult["total"] = $total;
+    	return $arrayResult;
     }
+    
 	public function loadFailureGraph($year) {
 		Loader::model("education");
 		$educationModel = new EducationModel();

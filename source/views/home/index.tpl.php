@@ -4,7 +4,7 @@
 	</div>
 <div id="container" > </div>
 
-	<?php	
+	<?php /*	
 		$values = $balances[0];
 		$series = array();
 		$xvalues = array();
@@ -19,16 +19,17 @@
 					data: [" . implode( ",", $balance->getFemaleData() ) . "],
 					stack: 'female'
 					}";
-			endforeach;
+			endforeach;*/
 		
 	?>
 </div>
 <script>	
-	loadChart('Balances por año', 
+	<?php /*loadChart('Balances por año', 
 				[<?php echo implode(",", $series) ?>],
 				[<?php echo implode(",", $xvalues[0]) ?>],
 				'Pesos uruguayos ($UY)'
-			);
+			);*/ ?>
+	loadHorizontalGraph('<?php echo $balanceTotal; ?>');
 </script>
 <?php if (count($failureYears)): ?> 
 <div>

@@ -14,3 +14,7 @@ function activeTab(obj) {
 	$(".d-load-graph.d-selected").removeClass("d-selected");
 	$(obj).parent().addClass("d-selected");
 }
+function loadHorizontalGraph(data) {
+	obj = eval('('+data+')');
+	horizontalBarGraph(obj.container, obj.title, obj.categoriesArr, obj.yAxisTitle, obj.seriesArr);
+}
