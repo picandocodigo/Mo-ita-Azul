@@ -277,7 +277,7 @@ CREATE TABLE `monita`.`ma_department_registry` (
   `year` INT(4)  NOT NULL,
   `average` DOUBLE  NOT NULL,
   PRIMARY KEY (`department_id`, `year`),
-  CONSTRAINT `failures_to_department_fk` FOREIGN KEY `failures_to_department_fk` (`department_id`)
+  CONSTRAINT `registry_to_department_fk` FOREIGN KEY `registry_to_department_fk` (`department_id`)
     REFERENCES `ma_departments` (`id`)
     ON DELETE RESTRICT
     ON UPDATE RESTRICT
@@ -291,7 +291,7 @@ INSERT INTO ma_department_registry (department_id, year, average) VALUES
 				(1,2007,10442),
 				(1,2008,10032),
 				(1,2009,9639),
-				(1,2009,9295);
+				(1,2009,9210);
 							
 INSERT INTO ma_department_registry (department_id, year, average) VALUES
 		 		(2,2005,54642),
