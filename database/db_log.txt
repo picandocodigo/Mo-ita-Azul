@@ -29,7 +29,7 @@ INSERT INTO ma_balance (name, year, credit, expenses) VALUES
 						('Fondo inasistencias', 2009, 614133, 219614),
 						('Gastos corrientes', 2009, 1124021109,	1120319574),
 						('Suministros', 2009, 294196882, 286932994),
-						('Proyectos Educativos' 2009, 743977645, 743348439),
+						('Proyectos Educativos', 2009, 743977645, 743348439),
 						('Plan de equidad', 2009, 153773540, 153746484),
 						('Proyectos de inversión', 2009, 223213259, 219180678),
 						('Plan de inversiones públicas', 2009, 100133474, 98153751);
