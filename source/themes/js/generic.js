@@ -1,5 +1,9 @@
 $(document).ready(function() {
 	$(".p-load-graph a").click(callGraph);
+	$(".p-tab").each(function() {
+		if (!$(this).hasClass("p-tab-1"))
+			$(this).addClass("d-invisible");
+	});
 });
 function callGraph() {
 	activeTab(this);

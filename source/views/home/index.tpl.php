@@ -49,7 +49,7 @@
 		</script>
 		<?php endif; ?>
 	</div>
-	<div class="p-tab p-tab-2 d-invisible span-24">
+	<div class="p-tab p-tab-2 span-24">
 		<?php if (count($failureYears)): ?> 
 		<div>
 			<div class="d-load-graph span-2 d-selected">
@@ -71,7 +71,7 @@
 		</script>
 		<?php endif; ?>
 	</div>
-	<div class="p-tab p-tab-3 d-invisible span-24">
+	<div class="p-tab p-tab-3 span-24">
 		<?php if (count($failureYears)): ?> 
 		<div>
 			<div class="d-load-graph span-2 d-selected">
