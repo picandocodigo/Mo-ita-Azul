@@ -34,14 +34,70 @@ INSERT INTO ma_balance (name, year, credit, expenses) VALUES
 						('Proyectos de inversión', 2009, 223213259, 219180678),
 						('Plan de inversiones públicas', 2009, 100133474, 98153751);
 INSERT INTO ma_balance (name, year, credit, expenses) VALUES
-						('Sueldos', 2008, 4086007986, 4070103219),
-						('Partida Alimentación', 2008, 334526447, 334205226),
-						('Aportes', 2008, 2027843426, 2018675339),
-						('Beneficios Sociales', 2008, 135307682, 135307250),
-						('Fondo inasistencias', 2008, 614133, 219614),
-						('Gastos corrientes', 2008, 1124021109,	1120319574),
-						('Suministros', 2008, 294196882, 286932994),
-						('Proyectos Educativos' 2008, 743977645, 743348439),
-						('Plan de equidad', 2008, 153773540, 153746484),
-						('Proyectos de inversión', 2008, 223213259, 219180678),
-						('Plan de inversiones públicas', 2008, 100133474, 98153751);		
+						('Sueldos', 2007, 4086007986, 4070103219),
+						('Partida Alimentación', 2007, 334526447, 334205226),
+						('Aportes', 2007, 1622626847, 1616609610),
+						('Beneficios Sociales', 2007, 127657799, 118028159),
+						('Fondo inasistencias', 2007, 20348454, 20234321),
+						('Gastos corrientes', 2007, 999454477, 996914877),
+						('Suministros', 2007, 259299101, 251582186),
+						('Proyectos Educativos', 2007, 419807978, 419452220),
+						('Plan de equidad', 2007, 127370544, 126107592),
+						('Proyectos de inversión', 2007, 127501473, 120287815),
+						('Plan de inversiones públicas', 2007, 45741504, 45661551);
+INSERT INTO ma_balance (name, year, credit, expenses) VALUES
+						('Sueldos', 2007, 4086007986, 4070103219),
+						('Partida Alimentación', 2007, 334526447, 334205226),
+						('Aportes', 2007, 1622626847, 1616609610),
+						('Beneficios Sociales', 2007, 127657799, 118028159),
+						('Fondo inasistencias', 2007, 20348454, 20234321),
+						('Gastos corrientes', 2007, 999454477, 996914877),
+						('Suministros', 2007, 259299101, 251582186),
+						('Proyectos Educativos', 2007, 419807978, 419452220),
+						('Plan de equidad', 2007, 127370544, 126107592),
+						('Proyectos de inversión', 2007, 127501473, 120287815),
+						('Plan de inversiones públicas', 2007, 45741504, 45661551);		
+						
+CREATE TABLE `monita`.`ma_departments` (
+  `id` INT  NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(30)  NOT NULL,
+  PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+INSERT INTO ma_departments (name) VALUES
+							('Artigas'),
+							('Canelones'),
+							('Cerro Largo'),
+							('Colonia'),
+							('Durazno'),
+							('Flores'),
+							('Florida'),
+							('Lavalleja'),
+							('Maldonado'),
+							('Montevideo'),
+							('Paysandú'),
+							('Río Negro'),
+							('Rivera'),
+							('Rocha'),
+							('Salto'),
+							('San José'),
+							('Soriano'),
+							('Tacuarembó'),
+							('Treinta y Tres');
+							
+CREATE TABLE `monita`.`ma_department_failures` (
+  `department_id` INT  NOT NULL,
+  `year` INT(4)  NOT NULL,
+  `average` DOUBLE  NOT NULL,
+  PRIMARY KEY (`department_id`, `year`),
+  CONSTRAINT `failures_to_department_fk` FOREIGN KEY `failures_to_department_fk` (`department_id`)
+    REFERENCES `ma_departments` (`id`)
+    ON DELETE RESTRICT
+    ON UPDATE RESTRICT
+)
+ENGINE = InnoDB
+CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+									
