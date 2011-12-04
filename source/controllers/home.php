@@ -15,14 +15,16 @@ class Home extends Controller {
 		$educationModel = new EducationModel();
 		$failureYears = $educationModel->getFailureAverageYears();
 		$failureAverage = $this->prepareFailureAverage($educationModel->getAverageFailureRatesByYear());
-		
+		$totalRegistration = $this->prepareRegistrationData($educationModel->getRegistrationsByYear());
+				
 
 		$inView = new View("home/index");
 		$inView->setData(array(
 			"balanceTotal" => json_encode($balances["total"]),
 			"balanceDetail" => json_encode($balances["detailed"]),
 			"failureYears" => $failureYears, 
-			"averages" => json_encode($failureAverage)
+			"averages" => json_encode($failureAverage),
+			"totalRegistration" => json_encode($totalRegistration)
 		));
 		$js = array('jquery-1.7.1.min', 'highcharts', 'horizontal-bar-graph', 'bar-graph', 'generic');
 		$css = array('screen', 'app');
@@ -105,6 +107,29 @@ class Home extends Controller {
 		$yearData = $educationModel->getFailureAverageByDepartment($year);
 
 		echo json_encode($this->prepareFailureData($yearData));
+	}
+
+	public function loadRegistrationGraph() {
+		Loader::model("registration");
+		$educationModel = new RegistrationModel();
+		$yearData = $educationModel->getRegistrationsByYear();
+		
+		echo json_encode($this->prepareRegistrationData($yearData));
+	}
+
+	private function prepareRegistrationData($data) {
+		$result = new stdClass();
+		$result->container = "registration-bar";
+		$result->title = "Inscripciones por año.";
+		$result->categoriesArr = array();
+		$result->yAxisTitle = "Total";
+		$result->seriesName = "Año";
+		$result->seriesArr = array();
+		foreach ($data as $fail) {
+			$result->categoriesArr[] = utf8_encode($fail->year);
+			$result->seriesArr[] = (double)$fail->average;
+		}
+		return $result;
 	}
 	
 	private function prepareFailureData($data) {

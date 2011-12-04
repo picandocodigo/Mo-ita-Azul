@@ -16,7 +16,7 @@ REFERENCES `ma_departments` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 )
 ENGINE = InnoDB
 COMMENT = 'Census data';
-INSERT INTO ma_census(depto, nombre, tlocales, tviviendas, viviendasdesocupadas, viviendasocupadas, hogares, hombres, mujeres, tpersonas) VALUES(1,'220 - Artigas', 2637, 14317, 1452, 12865, 13128, 19154, 21056, 40210),
+INSERT INTO ma_census(depto_id, nombre, tlocales, tviviendas, viviendasdesocupadas, viviendasocupadas, hogares, hombres, mujeres, tpersonas) VALUES(1,'220 - Artigas', 2637, 14317, 1452, 12865, 13128, 19154, 21056, 40210),
 (1,'521 - Bella Unión', 828, 4057, 337, 3720, 3848, 5961, 6192, 12153),
 (1,'522 - Tomás Gomensoro', 158, 990, 192, 798, 802, 1286, 1373, 2659),
 (1,'621 - Baltasar Brum', 172, 856, 144, 712, 722, 1288, 1234, 2522),
