@@ -9,7 +9,7 @@ class Home extends Controller {
 	public function index() {
 		Loader::model("balance");
 		$balance = new BalanceModel();
-		$balances = $balance->getBalance();
+		$balances = $this->prepareBalanceData($balance->getBalance());
 		
 		
 		
@@ -18,5 +18,12 @@ class Home extends Controller {
 		$js = array('jquery-1.7.1.min', 'highcharts', 'graph1');
 		$css = array('screen', 'app');
 		View::defaultLayoutRender($inView, "Home", true, $js, $css);
+	}
+	
+	private function prepareBalanceData($balances) {
+		$result = array();
+		foreach ($balances as $balance) 
+			$result[$balance->year] = $balance;
+		return $result;
 	}
 }

@@ -14,4 +14,34 @@ INSERT INTO ma_balance (name, year, credit, expenses) VALUES
 						('Partida Alimentación', 2010, 399109409, 399102228),
 						('Aportes', 2010, 2198159469, 2194360905),
 						('Beneficios Sociales', 2010, 141502758, 129314855),
-						('Fondo inasistencias', 2010, 349519, 96667);
+						('Fondo inasistencias', 2010, 349519, 96667),
+						('Gastos corrientes', 2010, 1177400163,	1175998268),
+						('Suministros', 2010, 312087650, 307143067),
+						('Proyectos Educativos', 2010, 846958612, 846694199),
+						('Plan de equidad', 2010, 166305327, 166165183),
+						('Proyectos de inversión', 2010, 196076874, 195176269),
+						('Plan de inversiones públicas', 2010, 110050108, 109387844);
+INSERT INTO ma_balance (name, year, credit, expenses) VALUES
+						('Sueldos', 2009, 4853294569, 4820999785),
+						('Partida Alimentación', 2009, 373101814, 372330772),
+						('Aportes', 2009, 2027843426, 2018675339),
+						('Beneficios Sociales', 2009, 135307682, 135307250),
+						('Fondo inasistencias', 2009, 614133, 219614),
+						('Gastos corrientes', 2009, 1124021109,	1120319574),
+						('Suministros', 2009, 294196882, 286932994),
+						('Proyectos Educativos' 2009, 743977645, 743348439),
+						('Plan de equidad', 2009, 153773540, 153746484),
+						('Proyectos de inversión', 2009, 223213259, 219180678),
+						('Plan de inversiones públicas', 2009, 100133474, 98153751);
+INSERT INTO ma_balance (name, year, credit, expenses) VALUES
+						('Sueldos', 2008, 4086007986, 4070103219),
+						('Partida Alimentación', 2008, 334526447, 334205226),
+						('Aportes', 2008, 2027843426, 2018675339),
+						('Beneficios Sociales', 2008, 135307682, 135307250),
+						('Fondo inasistencias', 2008, 614133, 219614),
+						('Gastos corrientes', 2008, 1124021109,	1120319574),
+						('Suministros', 2008, 294196882, 286932994),
+						('Proyectos Educativos' 2008, 743977645, 743348439),
+						('Plan de equidad', 2008, 153773540, 153746484),
+						('Proyectos de inversión', 2008, 223213259, 219180678),
+						('Plan de inversiones públicas', 2008, 100133474, 98153751);		
