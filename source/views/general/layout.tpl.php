@@ -18,7 +18,7 @@ and open the template in the editor.
     <body>
         <div id="header">
             <div class="logo">
-                <img src="source/themes/img/361x110.png">
+                <a href="<?php echo PROTOCOL_METHOD.URL_BASE?>"><img src="source/themes/img/361x110.png"></a>
             </div>
             <div class="dal">
                 <a href="http://desarrollandoamerica.org" title="Desarrollando Am&eacute;rica Latina">
