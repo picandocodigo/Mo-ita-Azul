@@ -2,11 +2,13 @@
 	<div class="d-load-graph span-2 d-selected">
 		<a onclick="loadTotalAgain(this);" class="span-2">Total</a> 
 	</div>
+
 	<div class="d-load-graph span-2">
 		<a onclick="loadDetailedAgain(this);" class="span-2">Detallado</a> 
 	</div>
 	<div style="clear:both;"> </div>
 	<div id="container" > </div>
+
 </div>
 <script>	
 	loadHorizontalGraph('<?php echo $balanceTotal; ?>');

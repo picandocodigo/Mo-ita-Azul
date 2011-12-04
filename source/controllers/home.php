@@ -15,6 +15,7 @@ class Home extends Controller {
 		$educationModel = new EducationModel();
 		$failureYears = $educationModel->getFailureAverageYears();
 		$failureAverage = $this->prepareFailureAverage($educationModel->getAverageFailureRatesByYear());
+
 		$totalRegistration = $this->prepareRegistrationData($educationModel->getRegistrationsByYear());
 		$abandonAverage = $this->prepareAbandonAverage($educationModel->getAverageAbandonRatesByYear());		
 
@@ -31,6 +32,35 @@ class Home extends Controller {
 		$css = array('screen', 'app');
 		View::defaultLayoutRender($inView, "Home", true, $js, $css);
 	}
+    
+    public function census(){
+        Loader::model("census");
+        $censusModel = new CensusModel();
+        $censusData = $censusModel->getCensus();
+        $inView = new View("home/census");
+        $inView->setData(array("census_data"=>$censusData));
+        
+        $js = array('jquery-1.7.1.min', 'highcharts', 'generic');
+        $css = array('screen', 'app');
+        View::defaultLayoutRender($inView, "Datos censo", true, $js, $css);
+    }
+    
+    private function getCensusData($data){
+        $result = new stdClass();
+        $result->title = "Datos preliminares Censo 2011 Uruguay";
+        $result->categories = array();
+        $result->data = array();
+        
+        foreach ($data as $censusitem) {
+            if (!in_array($censusitem['name'], $result->categories)){
+                $result->categories[] = $censusitem['name'];
+            }
+            $item = new stdClass();
+            $result->data[] = $censusitem;
+        }
+        
+        
+    }
 
 	/*private function prepareBalanceData( $param ) {
 		Loader::util("chart_balance");
@@ -200,4 +230,5 @@ class Home extends Controller {
 		}
 		return $result;
 	}
+
 }
