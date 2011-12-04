@@ -23,7 +23,8 @@ function loadChart(title, series, xvalues, yAxis_title) {
         },
         legend : { 
                     align: 'left',
-                    width: 200},
+                    width: 200,
+                    verticalAlign: 'top' },
         yAxis : {
             allowDecimals : false,
             min : 0,

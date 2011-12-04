@@ -21,13 +21,18 @@ and open the template in the editor.
                 <img src="source/themes/img/361x110.png">
             </div>
             <div class="dal">
-                <img src="source/themes/img/dal.png">
+                <a href="http://desarrollandoamerica.org" title="Desarrollando Am&eacute;rica Latina">
+                    <img src="source/themes/img/dal.png">
+                </a>
             </div>
         </div>
     	<div class="container">
   			<div class="span-24 content">
   				<?= $content; ?>
   			</div>
-  			<div class="span-24 footer">
+  			</div>
+      <div class="footer">
+          <a href="http://desarrollandoamerica.org" title="Desarrollando Am&eacute;rica Latina">Desarrollando Am&eacute;rica Latina</a>
+      </div>
     </body>
 </html>
