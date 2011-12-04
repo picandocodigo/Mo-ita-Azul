@@ -1,3 +1,7 @@
+<div>
+	<div class="d-load-graph span-2 d-selected">
+		<a onclick="loadBalancesAgain(this);" class="span-2">Total</a> 
+	</div>
 <div id="container" > </div>
 
 	<?php	
@@ -18,6 +22,7 @@
 			endforeach;
 		
 	?>
+</div>
 <script>	
 	loadChart('Balances por año', 
 				[<?php echo implode(",", $series) ?>],

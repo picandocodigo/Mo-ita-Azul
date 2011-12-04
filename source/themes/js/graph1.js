@@ -21,10 +21,12 @@ function loadChart(title, series, xvalues, yAxis_title) {
                 +  ' $ ' + this.y + '<br/>';
             }
         },
+
         legend : { 
                     align: 'left',
                     width: 200,
                     verticalAlign: 'top' },
+
         yAxis : {
             allowDecimals : false,
             min : 0,
