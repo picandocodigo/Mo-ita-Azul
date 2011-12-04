@@ -18,9 +18,8 @@ and open the template in the editor.
     <body>
     	<div class="container">
   			<div class="span-24 header">
-  				<div class="span-15">	
-  					<h1>HEADER</h1>
-  					Mo&ntilde;ita azul
+  				<div class="span-15">
+  					<img src="source/themes/img/361x110.png">
 				</div>
   				<div class="align-right span-9 last">
   					<div class="span-9 last">
@@ -34,9 +33,5 @@ and open the template in the editor.
   			<div class="span-24 content">
   				<?= $content; ?>
   			</div>
-  			<div class="span-24 footer">
-  				<h3>FOOTER</h3>
-  			</div>
-		</div>
-    </body>
+  			<div class="span-24 footer"</body>
 </html>
