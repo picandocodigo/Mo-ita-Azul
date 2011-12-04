@@ -12,8 +12,8 @@ departamentos = [
   
 sql_create_query = 'CREATE TABLE IF NOT EXISTS `monita`.`ma_census` (
   `id` BIGINT  NOT NULL AUTO_INCREMENT,
-  `depto` VARCHAR  NOT NULL,
-  `nombre` VARCHAR  NOT NULL,
+  `depto` VARCHAR(50)  NOT NULL,
+  `nombre` VARCHAR(50)  NOT NULL,
   `tlocales` BIGINT  NOT NULL DEFAULT 0,
   `tviviendas` BIGINT  NOT NULL DEFAULT 0,
   `viviendasdesocupadas` BIGINT  NOT NULL DEFAULT 0,
@@ -24,17 +24,20 @@ sql_create_query = 'CREATE TABLE IF NOT EXISTS `monita`.`ma_census` (
   `tpersonas` BIGINT  NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 )
-ENGINE = MyISAM
+ENGINE = InnoDB
 COMMENT = \'Census data\';'
 
+sql_insert_query = "INSERT INTO ma_census(depto, nombre, tlocales, tviviendas, viviendasdesocupadas, viviendasocupadas, hogares, hombres, mujeres, tpersonas) VALUES"
 departamentos.each do |depto|
   doc.xpath("//" + depto).each do |p|
-    sql_insert_query = "INSERT INTO ma_census VALUES("
-    sql_insert_query += "'#{depto}','#{p.search("nombre").text}', #{p.search("Tlocales").text},"
-    sql_insert_query += "#{p.search("Tviviendas").text}, #{p.search("viviendasdesocupadas").text},"
-    sql_insert_query += "#{p.search("viviendasocupadas").text}, #{p.search("hogares").text},"
-    sql_insert_query += "#{p.search("hombres").text}, #{p.search("mujeres").text},"
-    sql_insert_query += "#{p.search("Tpersonas").text}"
-    puts sql_insert_query;
+    sql_insert_query += "('#{depto}','#{p.search("nombre").text}', #{p.search("Tlocales").text.gsub('.','')}, "
+    sql_insert_query += "#{p.search("Tviviendas").text.gsub('.','')}, #{p.search("viviendasdesocupadas").text.gsub('.','')}, "
+    sql_insert_query += "#{p.search("viviendasocupadas").text.gsub('.','')}, #{p.search("hogares").text.gsub('.','')}, "
+    sql_insert_query += "#{p.search("hombres").text.gsub('.','')}, #{p.search("mujeres").text.gsub('.','')}, "
+    sql_insert_query += "#{p.search("Tpersonas").text.gsub('.','')}),\n"
+
   end
 end
+
+sql_insert_query += ";"
+    puts sql_insert_query;
