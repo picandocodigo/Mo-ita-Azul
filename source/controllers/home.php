@@ -37,7 +37,7 @@ class Home extends Controller {
 			if ( !in_array($balance->year, $years) ):
 				$years[] = $balance->year;
 			endif;
-			$processed_balances[$balance->name]->setMaleData($balance->year, $balance->credit);
+			//$processed_balances[$balance->name]->setMaleData($balance->year, $balance->credit);
 			$processed_balances[$balance->name]->setFemaleData($balance->year, $balance->expenses);
 		endforeach;
 
