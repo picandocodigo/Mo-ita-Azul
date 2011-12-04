@@ -8,15 +8,21 @@ body {
 
 .header {
 	background-color: #FFF;
+	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
 .footer {
 	background-color: #FFF;
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .content {
 	background-color: #FFF;
 	min-height: 400px;
+}
+
+.align-right{
+	text-align: right;
 }
