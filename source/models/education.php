@@ -43,4 +43,23 @@ class EducationModel extends Model {
 				->groupBy("df.year");
 		return $this->db->executeQuery($query)->fetchAllObjects();
 	}
+
+	public function getRegistersByDepartment($year) {
+		$query = ConnectionManager::getQuery();
+		$query->select("d.name", "df.year", "df.average")
+				->fromTable("ma_departments", "d")
+				->addExplicitJoin(_INNER_JOIN, "ma_department_failures", "df", "department_id", "d", "id")
+				->where("df.year", "=", $year)
+				->orderBy("df.year", "ASC", "d.id", "ASC");
+		$result = $this->db->executeQuery($query)->fetchAllObjects();
+		return $result;
+	}
+	
+	public function getRegistrationsByYear() {
+		$query = ConnectionManager::getQuery();
+		$query->select("df.year", "ROUND(SUM(df.average), 2) AS average")
+				->fromTable("ma_department_registry", "df")
+				->groupBy("df.year");
+		return $this->db->executeQuery($query)->fetchAllObjects();
+	}
 }
