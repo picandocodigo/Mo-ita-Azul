@@ -15,13 +15,18 @@ class Home extends Controller {
 		$educationModel = new EducationModel();
 		$failureYears = $educationModel->getFailureAverageYears();
 		$failureAverage = $this->prepareFailureAverage($educationModel->getAverageFailureRatesByYear());
-		
+
+		$totalRegistration = $this->prepareRegistrationData($educationModel->getRegistrationsByYear());
+		$abandonAverage = $this->prepareAbandonAverage($educationModel->getAverageAbandonRatesByYear());		
+
 		$inView = new View("home/index");
 		$inView->setData(array(
 			"balanceTotal" => json_encode($balances["total"]),
 			"balanceDetail" => json_encode($balances["detailed"]),
 			"failureYears" => $failureYears, 
-			"averages" => json_encode($failureAverage)
+			"averages" => json_encode($failureAverage),
+			"totalRegistration" => json_encode($totalRegistration),
+			"abandon" => json_encode($abandonAverage)
 		));
 		$js = array('jquery-1.7.1.min', 'highcharts', 'horizontal-bar-graph', 'bar-graph', 'generic');
 		$css = array('screen', 'app');
@@ -41,10 +46,18 @@ class Home extends Controller {
     }
     
     private function getCensusData($data){
-        foreach ($data as $census) {
-            
+        $result = new stdClass();
+        $result->title = "Datos preliminares Censo 2011 Uruguay";
+        $result->categories = array();
+        $result->data = array();
+        
+        foreach ($data as $censusitem) {
+            if (!in_array($censusitem['name'], $result->categories)){
+                $result->categories[] = $censusitem['name'];
+            }
             
         }
+        
         
     }
 
@@ -125,6 +138,37 @@ class Home extends Controller {
 
 		echo json_encode($this->prepareFailureData($yearData));
 	}
+
+	public function loadRegistrationGraph($year) {
+		Loader::model("education");
+		$educationModel = new EducationModel();
+		$yearData = $educationModel->getRegistersByDepartment($year);
+		
+		echo json_encode($this->prepareRegistrationData($yearData));
+	}
+	
+	public function loadAbandonGraph($year) {
+		Loader::model("education");
+		$educationModel = new EducationModel();
+		$yearData = $educationModel->getAbandonAverageByDepartment($year);
+	
+		echo json_encode($this->prepareAbandonData($yearData));
+	}
+
+	private function prepareRegistrationData($data) {
+		$result = new stdClass();
+		$result->container = "registration-bar";
+		$result->title = "Inscripciones por año.";
+		$result->categoriesArr = array();
+		$result->yAxisTitle = "Total";
+		$result->seriesName = "Año";
+		$result->seriesArr = array();
+		foreach ($data as $fail) {
+			$result->categoriesArr[] = utf8_encode($fail->year);
+			$result->seriesArr[] = (double)$fail->average;
+		}
+		return $result;
+	}
 	
 	private function prepareFailureData($data) {
 		$result = new stdClass();
@@ -155,6 +199,35 @@ class Home extends Controller {
 		}
 		return $result;
 	}
-    
-    
+	
+	private function prepareAbandonData($data) {
+		$result = new stdClass();
+		$result->container = "abandon-bar";
+		$result->title = "Porcentaje de abandonos por departamento.";
+		$result->categoriesArr = array();
+		$result->yAxisTitle = "Porcentaje";
+		$result->seriesName = "Departamento";
+		$result->seriesArr = array();
+		foreach ($data as $fail) {
+			$result->categoriesArr[] = utf8_encode($fail->name);
+			$result->seriesArr[] = (double)$fail->average;
+		}
+		return $result;
+	}
+	
+	private function prepareAbandonAverage($data) {
+		$result = new stdClass();
+		$result->container = "abandon-bar";
+		$result->title = "Porcentaje de abandonos total por año.";
+		$result->categoriesArr = array();
+		$result->yAxisTitle = "Porcentaje";
+		$result->seriesName = "Año";
+		$result->seriesArr = array();
+		foreach ($data as $fail) {
+			$result->categoriesArr[] = $fail->year;
+			$result->seriesArr[] = (double)$fail->average;
+		}
+		return $result;
+	}
+
 }

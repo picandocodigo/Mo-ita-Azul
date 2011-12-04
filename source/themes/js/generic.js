@@ -11,10 +11,22 @@ function loadGraph(data) {
 	barGraph(obj.container, obj.title, obj.categoriesArr, obj.yAxisTitle, obj.seriesName, obj.seriesArr);
 }
 function activeTab(obj) {
-	$(".d-load-graph.d-selected").removeClass("d-selected");
+	$(".d-load-graph.d-selected", $(obj).parent().parent()).removeClass("d-selected");
 	$(obj).parent().addClass("d-selected");
 }
 function loadHorizontalGraph(data) {
 	obj = eval('('+data+')');
 	horizontalBarGraph(obj.container, obj.title, obj.categoriesArr, obj.yAxisTitle, obj.seriesArr);
+}
+function switchTab(tab, obj) {
+	$(".d-tab-menu div").each(function() {
+		$(this).removeClass("d-selected");
+	});
+	$(obj).parent().addClass("d-selected");
+	$(".p-tab", $(obj).parents(".p-tab-container")).each(function() {
+		if (!$(this).hasClass("d-invisible"))
+			$(this).addClass("d-invisible");
+	});
+	$(".p-tab-"+tab).removeClass("d-invisible");
+	return false;
 }
