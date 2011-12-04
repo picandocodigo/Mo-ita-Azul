@@ -1,5 +1,8 @@
-<div>
-    
+<div style="min-height: 600px;">
+
+	<div id="container" > </div>
+
 </div>
-<?php
-var_dump($census_data);
+<script>	
+	loadPieGraph('<?php echo $census_data; ?>');
+</script>

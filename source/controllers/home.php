@@ -36,31 +36,66 @@ class Home extends Controller {
     public function census(){
         Loader::model("census");
         $censusModel = new CensusModel();
-        $censusData = $censusModel->getCensus();
+        $censusData = $this->getCensusData($censusModel->getDepartmentCensus(), $censusModel->censusTotalPeople());
         $inView = new View("home/census");
-        $inView->setData(array("census_data"=>$censusData));
+        $inView->setData(array("census_data"=> json_encode($censusData)));
         
-        $js = array('jquery-1.7.1.min', 'highcharts', 'generic');
+        $js = array('jquery-1.7.1.min', 'highcharts', 'pie-graph', 'generic');
         $css = array('screen', 'app');
         View::defaultLayoutRender($inView, "Datos censo", true, $js, $css);
     }
     
-    private function getCensusData($data){
+    private function getCensusData($data, $total){
+    	$result = new stdClass();
+    	$result->title = "Datos preliminares Censo 2011 Uruguay";
+    	$result->container = "container";
+    	$result->slices = array();
+    
+    	foreach ($data as $censusitem) {
+    		$val = round(($censusitem->total*100/$total), 2);
+    		$result->slices[] = array(utf8_encode($censusitem->name), $val);
+    	}
+    	return $result;
+    }
+    /*private function getCensusData($data, $total){
         $result = new stdClass();
         $result->title = "Datos preliminares Censo 2011 Uruguay";
-        $result->categories = array();
-        $result->data = array();
-        
+        $result->yAxisTitle = "Departamentos";
+        $result->categoriesArr = array();
+        $result->dataObjects = array();
+        $result->container = "container";
+        $result->internalTitle = "Departamentos";
+        $result->externalTitle = "Localidades";
+        $objects = array();
+        $lastDPT = "";
+        $dptTotal = 0;
         foreach ($data as $censusitem) {
-            if (!in_array($censusitem['name'], $result->categories)){
-                $result->categories[] = $censusitem['name'];
+            if (!in_array($censusitem->name, $result->categoriesArr)) {
+                $result->categoriesArr[] = utf8_encode($censusitem->name);
             }
-            $item = new stdClass();
-            $result->data[] = $censusitem;
+            if ($lastDPT != $censusitem->name) {
+            	if ($lastDPT && $total > 0) {
+            		$objects[$lastDPT]->y = (double) round($dptTotal*100/$total);
+            		$objects[$lastDPT]->color = "";
+            		$dptTotal = 0;
+            	}
+            	$objects[$censusitem->name] = new stdClass();
+            	$objects[$censusitem->name]->name = utf8_encode($censusitem->name);
+            	$objects[$censusitem->name]->drilldown = new stdClass();
+            	$objects[$censusitem->name]->drilldown->name = "Zonas de ".utf8_encode($censusitem->name);
+            	$objects[$censusitem->name]->drilldown->data = array();
+            	$objects[$censusitem->name]->drilldown->categories = array();
+            	$objects[$censusitem->name]->drilldown->color = "";
+            	$lastDPT = $censusitem->name;
+            }
+            $objects[$censusitem->name]->drilldown->categories[] = utf8_encode($censusitem->nombre);
+            $objects[$censusitem->name]->drilldown->data[] = $censusitem->tpersonas;
+            $dptTotal += $censusitem->tpersonas;
         }
-        
-        
-    }
+        foreach ($objects as $object) 
+        	$result->dataObjects[] = $object;
+        return $result;
+    }*/
 
 	/*private function prepareBalanceData( $param ) {
 		Loader::util("chart_balance");

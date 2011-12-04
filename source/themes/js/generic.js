@@ -22,6 +22,10 @@ function loadHorizontalGraph(data) {
 	obj = eval('('+data+')');
 	horizontalBarGraph(obj.container, obj.title, obj.categoriesArr, obj.yAxisTitle, obj.seriesArr);
 }
+function loadPieGraph(data) {
+	obj = eval('('+data+')');
+	showPieChart(obj.container, obj.title, obj.slices);
+}
 function switchTab(tab, obj) {
 	$(".d-tab-menu div").each(function() {
 		$(this).removeClass("d-selected");
