@@ -16,20 +16,15 @@ and open the template in the editor.
 		<?php endforeach; ?>
     </head>
     <body>
+        <div id="header">
+            <div class="logo">
+                <img src="source/themes/img/361x110.png">
+            </div>
+            <div class="dal">
+                <img src="source/themes/img/dal.png">
+            </div>
+        </div>
     	<div class="container">
-  			<div class="span-24 header">
-  				<div class="span-15">
-  					<img src="source/themes/img/361x110.png">
-				</div>
-  				<div class="align-right span-9 last">
-  					<div class="span-9 last">
-  						<img src="source/themes/img/dal-logo1.png">
-  					</div>
-  					<div class="span-9 last">
-  						<img src="source/themes/img/dal-logo2.png">
-  					</div>
-  				</div>
-  			</div>
   			<div class="span-24 content">
   				<?= $content; ?>
   			</div>

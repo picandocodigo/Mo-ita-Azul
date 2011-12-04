@@ -1,15 +1,26 @@
 body {
-	background-color: #2554C7;
+	background-color: #001333;
 }
 
 .container {
 	
 }
 
-.header {
-	background-color: #FFF;
+#header {
+	background: #ccdfff;
+	width: 100%;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#header .logo{
+    float: left;
+}
+
+#header .dal{
+    float: right;
+    margin: 15px;
 }
 
 .footer {
