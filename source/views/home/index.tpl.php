@@ -31,7 +31,7 @@
 		<a onclick="loadAgain(this);" class="span-2">Total</a> 
 	</div>
 	<?php for($i=0; $i<count($failureYears); $i++) : ?>
-	<div class="d-load-graph p-load-graph  span-2" id="fail-year-<?php echo $failureYears[$i]->year; ?>">
+	<div class="d-load-graph p-load-graph  span-2 <?php echo $i==count($failureYears)-1 ? "last" : ""; ?>" id="fail-year-<?php echo $failureYears[$i]->year; ?>">
 		<a href="<?php echo PROTOCOL_METHOD.URL_BASE."home/loadFailureGraph/{$failureYears[$i]->year}"; ?>" class="span-2"><?php echo $failureYears[$i]->year; ?></a>
 	</div>
 	<?php endfor; ?>

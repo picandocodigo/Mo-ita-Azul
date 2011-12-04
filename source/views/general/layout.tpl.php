@@ -28,5 +28,6 @@ and open the template in the editor.
   			<div class="span-24 content">
   				<?= $content; ?>
   			</div>
-  			<div class="span-24 footer"</body>
+  			<div class="span-24 footer">
+    </body>
 </html>
