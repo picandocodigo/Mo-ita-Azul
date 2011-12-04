@@ -18,3 +18,15 @@ function loadHorizontalGraph(data) {
 	obj = eval('('+data+')');
 	horizontalBarGraph(obj.container, obj.title, obj.categoriesArr, obj.yAxisTitle, obj.seriesArr);
 }
+function switchTab(tab, obj) {
+	$(".d-tab-menu div").each(function() {
+		$(this).removeClass("d-selected");
+	});
+	$(obj).parent().addClass("d-selected");
+	$(".p-tab", $(obj).parents(".p-tab-container")).each(function() {
+		if (!$(this).hasClass("d-invisible"))
+			$(this).addClass("d-invisible");
+	});
+	$(".p-tab-"+tab).removeClass("d-invisible");
+	return false;
+}
