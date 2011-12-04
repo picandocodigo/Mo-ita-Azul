@@ -26,9 +26,9 @@
 		<div class="span-4 last"><a onclick="switchTab(3, this);" class="span-4">Datos de abandono</a></div>
 	</div>
 	<div style="clear:both;"> </div>
-	<div class="p-tab p-tab-1 span-24 last">
+	<div class="p-tab p-tab-1 span-24">
 		<?php if (count($failureYears)): ?> 
-		<div>
+		<div class="d-graph-container">
 			<div class="d-load-graph span-2 d-selected">
 				<a onclick="loadAgain(this);" class="span-2">Total</a> 
 			</div>
@@ -51,7 +51,7 @@
 	</div>
 	<div class="p-tab p-tab-2 span-24">
 		<?php if (count($failureYears)): ?> 
-		<div>
+		<div class="d-graph-container">
 			<div class="d-load-graph span-2 d-selected">
 				<a onclick="loadRegistryAgain(this);" class="span-2">Total</a> 
 			</div>
@@ -73,7 +73,7 @@
 	</div>
 	<div class="p-tab p-tab-3 span-24">
 		<?php if (count($failureYears)): ?> 
-		<div>
+		<div class="d-graph-container">
 			<div class="d-load-graph span-2 d-selected">
 				<a onclick="loadAbandonAgain(this);" class="span-2">Total</a> 
 			</div>

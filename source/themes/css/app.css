@@ -47,19 +47,28 @@ body {
 .d-invisible {
 	display: none;
 }
+.d-graph-container {
+	background-color: #cce9ff;
+}
 .d-load-graph {
-	background-color: lightgrey;
+	background-color: #99d3ff;
 }
 .d-load-graph a {
 	text-align: center;
 	font-weight: bolder;
 	text-decoration: none;
 }
-.d-selected {
-	background-color: gray;
-}
 .d-tab-menu {
-	background-color: lightgrey;
+	background-color: #cce9ff;
+}
+.d-tab-menu div {
+	background-color: #99d3ff;
+}
+.d-tab-menu div.d-selected {
+	background-color: #cce9ff;
+}
+.d-selected {
+	background-color: #cce9ff;
 }
 .d-tab-menu a {
 	text-align: center;
